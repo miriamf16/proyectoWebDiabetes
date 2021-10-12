@@ -1,6 +1,10 @@
 <?php
 
-use PragmaRX\Tracker\Support\Migration;
+// use PragmaRX\Tracker\Support\Migration;
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateTrackerSystemClassesTable extends Migration
 {
@@ -9,27 +13,34 @@ class CreateTrackerSystemClassesTable extends Migration
      *
      * @var string
      */
-    private $table = 'tracker_system_classes';
+    // private $table = 'tracker_system_classes';
 
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function migrateUp()
+    public function up()
     {
-        $this->builder->create(
-            $this->table,
-            function ($table) {
-                $table->bigIncrements('id');
+        // $this->builder->create(
+        //     $this->table,
+        //     function ($table) {
+        //         $table->bigIncrements('id');
 
-                $table->string('name')->index();
+        //         $table->string('name')->index();
 
-                $table->timestamps();
-                $table->index('created_at');
-                $table->index('updated_at');
-            }
-        );
+        //         $table->timestamps();
+        //         $table->index('created_at');
+        //         $table->index('updated_at');
+        //     }
+        // );
+        Schema::create('tracker_system_classes',function(Blueprint $table){
+            $table->id();
+            
+            $table->string('name')->index();
+
+            $table->timestamps();
+        });
     }
 
     /**
@@ -39,6 +50,7 @@ class CreateTrackerSystemClassesTable extends Migration
      */
     public function migrateDown()
     {
-        $this->drop($this->table);
+        // $this->drop($this->table);
+        Schema::drop('tracker_system_classes');
     }
 }

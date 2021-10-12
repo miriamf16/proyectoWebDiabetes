@@ -1,6 +1,10 @@
 <?php
 
-use PragmaRX\Tracker\Support\Migration;
+// use PragmaRX\Tracker\Support\Migration;
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class FixQueryArguments extends Migration
 {
@@ -9,25 +13,35 @@ class FixQueryArguments extends Migration
      *
      * @var string
      */
-    private $table = 'tracker_query_arguments';
+    // private $table = 'tracker_query_arguments';
 
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function migrateUp()
+    public function up()
     {
+        // try {
+        //     $this->builder->table(
+        //         $this->table,
+        //         function ($table) {
+        //             $table->string('value')->nullable()->change();
+        //         }
+        //     );
+        // } catch (\Exception $e) {
+        //     dd($e->getMessage());
+        // }
         try {
-            $this->builder->table(
-                $this->table,
-                function ($table) {
-                    $table->string('value')->nullable()->change();
-                }
-            );
+            //code...
+            Schema::table('tracker_query_arguments',function(Blueprint $table){
+                $table->string('value')->nullable();
+            });
         } catch (\Exception $e) {
+            //throw $th;
             dd($e->getMessage());
         }
+    
     }
 
     /**
@@ -35,17 +49,26 @@ class FixQueryArguments extends Migration
      *
      * @return void
      */
-    public function migrateDown()
+    public function down()
     {
-        try {
-            $this->builder->table(
-                $this->table,
-                function ($table) {
+        // try {
+        //     $this->builder->table(
+        //         $this->table,
+        //         function ($table) {
+        //             $table->string('value')->change();
+        //         }
+        //     );
+        // } catch (\Exception $e) {
+        //     dd($e->getMessage());
+        // }
+            try {
+                //code...
+                Schema::table('tracker_query_arguments',function(Blueprint $table){
                     $table->string('value')->change();
-                }
-            );
-        } catch (\Exception $e) {
-            dd($e->getMessage());
-        }
+                });
+            } catch (\Exception $e) {
+                //throw $th;
+                dd($e->getMessage());
+            }
     }
 }

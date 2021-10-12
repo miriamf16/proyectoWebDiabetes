@@ -1,6 +1,10 @@
 <?php
 
-use PragmaRX\Tracker\Support\Migration;
+// use PragmaRX\Tracker\Support\Migration;
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateTrackerSqlQueryBindingsTable extends Migration
 {
@@ -9,7 +13,7 @@ class CreateTrackerSqlQueryBindingsTable extends Migration
      *
      * @var string
      */
-    private $table = 'tracker_sql_query_bindings';
+    // private $table = 'tracker_sql_query_bindings';
 
     /**
      * Run the migrations.
@@ -18,19 +22,28 @@ class CreateTrackerSqlQueryBindingsTable extends Migration
      */
     public function migrateUp()
     {
-        $this->builder->create(
-            $this->table,
-            function ($table) {
-                $table->bigIncrements('id');
+        // $this->builder->create(
+        //     $this->table,
+        //     function ($table) {
+        //         $table->bigIncrements('id');
 
-                $table->string('sha1', 40)->index();
-                $table->text('serialized');
+        //         $table->string('sha1', 40)->index();
+        //         $table->text('serialized');
 
-                $table->timestamps();
-                $table->index('created_at');
-                $table->index('updated_at');
-            }
-        );
+        //         $table->timestamps();
+        //         $table->index('created_at');
+        //         $table->index('updated_at');
+        //     }
+        // );
+
+        Schema::create('tracker_sql_query_bindings',function(Blueprint $table){
+            $table->id();
+
+            $table->string('sha1', 40)->index();
+            $table->text('serialized');
+
+            $table->timestamps();
+        });
     }
 
     /**
@@ -38,8 +51,9 @@ class CreateTrackerSqlQueryBindingsTable extends Migration
      *
      * @return void
      */
-    public function migrateDown()
+    public function down()
     {
-        $this->drop($this->table);
+        // $this->drop($this->table);
+        Schema::drop('tracker_sql_query_bindings');
     }
 }

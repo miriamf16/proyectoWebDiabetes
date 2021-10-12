@@ -1,6 +1,10 @@
 <?php
 
-use PragmaRX\Tracker\Support\Migration;
+// use PragmaRX\Tracker\Support\Migration;
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateTrackerErrorsTable extends Migration
 {
@@ -9,28 +13,37 @@ class CreateTrackerErrorsTable extends Migration
      *
      * @var string
      */
-    private $table = 'tracker_errors';
+    // private $table = 'tracker_errors';
 
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function migrateUp()
+    public function up()
     {
-        $this->builder->create(
-            $this->table,
-            function ($table) {
-                $table->bigIncrements('id');
+        // $this->builder->create(
+        //     $this->table,
+        //     function ($table) {
+        //         $table->bigIncrements('id');
+
+        //         $table->string('code')->index();
+        //         $table->string('message')->index();
+
+        //         $table->timestamps();
+        //         $table->index('created_at');
+        //         $table->index('updated_at');
+        //     }
+        // );
+
+        Schema::create('tracker_errors',function(Blueprint $table){
+                $table->id();
 
                 $table->string('code')->index();
                 $table->string('message')->index();
 
                 $table->timestamps();
-                $table->index('created_at');
-                $table->index('updated_at');
-            }
-        );
+        });
     }
 
     /**
@@ -40,6 +53,7 @@ class CreateTrackerErrorsTable extends Migration
      */
     public function migrateDown()
     {
-        $this->drop($this->table);
+        // $this->drop($this->table);
+        Schema::drop('tracker_errors');
     }
 }

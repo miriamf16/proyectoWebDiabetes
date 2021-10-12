@@ -1,6 +1,10 @@
 <?php
 
-use PragmaRX\Tracker\Support\Migration;
+// use PragmaRX\Tracker\Support\Migration;
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class AddTrackerRefererColumnToLog extends Migration
 {
@@ -9,21 +13,25 @@ class AddTrackerRefererColumnToLog extends Migration
      *
      * @var string
      */
-    private $table = 'tracker_log';
+    // private $table = 'tracker_log';
 
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function migrateUp()
+    public function up()
     {
-        $this->builder->table(
-            $this->table,
-            function ($table) {
-                $table->integer('referer_id')->unsigned()->nullable()->index();
-            }
-        );
+        // $this->builder->table(
+        //     $this->table,
+        //     function ($table) {
+        //         $table->integer('referer_id')->unsigned()->nullable()->index();
+        //     }
+        // );
+
+        Schema::table('tracker_log',function(Blueprint $table){
+            $table->integer('referer_id')->unsigned()->nullable()->index();
+        });
     }
 
     /**
@@ -31,13 +39,17 @@ class AddTrackerRefererColumnToLog extends Migration
      *
      * @return void
      */
-    public function migrateDown()
+    public function down()
     {
-        $this->builder->table(
-            $this->table,
-            function ($table) {
-                $table->dropColumn('referer_id');
-            }
-        );
+        // $this->builder->table(
+        //     $this->table,
+        //     function ($table) {
+        //         $table->dropColumn('referer_id');
+        //     }
+        // );
+
+        Schema::table('tracker_log',function(Blueprint $table){
+            $table->dropColumn('referer_id');
+        });
     }
 }

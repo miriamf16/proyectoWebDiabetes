@@ -1,6 +1,9 @@
 <?php
 
-use PragmaRX\Tracker\Support\Migration;
+// use PragmaRX\Tracker\Support\Migration;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateTrackerPathsTable extends Migration
 {
@@ -9,27 +12,33 @@ class CreateTrackerPathsTable extends Migration
      *
      * @var string
      */
-    private $table = 'tracker_paths';
+    // private $table = 'tracker_paths';
 
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function migrateUp()
+    public function up()
     {
-        $this->builder->create(
-            $this->table,
-            function ($table) {
-                $table->bigIncrements('id');
+        // $this->builder->create(
+        //     $this->table,
+        //     function ($table) {
+        //         $table->bigIncrements('id');
 
-                $table->string('path')->index();
+        //         $table->string('path')->index();
 
-                $table->timestamps();
-                $table->index('created_at');
-                $table->index('updated_at');
-            }
-        );
+        //         $table->timestamps();
+        //         $table->index('created_at');
+        //         $table->index('updated_at');
+        //     }
+        // );
+        Schema::create('tracker_paths',function (Blueprint $table)
+        {
+            $table->id();
+            $table->string('path')->index();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -37,8 +46,9 @@ class CreateTrackerPathsTable extends Migration
      *
      * @return void
      */
-    public function migrateDown()
+    public function down()
     {
-        $this->drop($this->table);
+        // $this->drop($this->table);
+        Schema::drop('tracker_paths');
     }
 }
