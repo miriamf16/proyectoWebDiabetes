@@ -39,7 +39,7 @@ Route::get('/survey/{survey:slug}/thanks', [PageController::class, 'survey_thank
 //     return view('dashboard');
 // });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified','admin'])->get('/dashboard', function () {
 
     $sessions = Tracker::sessions(60 * 24); // get sessions (visits) from the past day
     $paths = [];
@@ -84,25 +84,29 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     ]);
 })->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/posts', function () {
+Route::middleware(['auth:sanctum', 'verified', 'admin'])->get('/dashboard/posts', function () {
     return view('admin-posts');
 })->name('admin-posts');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/surveys', function () {
+Route::middleware(['auth:sanctum', 'verified', 'admin'])->get('/dashboard/surveys', function () {
     return view('admin-survey');
 })->name('admin-survey');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/survey/{survey:slug}', function (Survey $survey) {
+Route::middleware(['auth:sanctum', 'verified', 'admin'])->get('/dashboard/survey/{survey:slug}', function (Survey $survey) {
     return view('admin-survey-responses', [
         'responses' => Response::where('survey_id', $survey->id)->get(),
         'questions' => $survey->config,
     ]);
 })->name('admin-survey-responses');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/categories', function () {
+Route::middleware(['auth:sanctum', 'verified', 'admin'])->get('/dashboard/categories', function () {
     return view('admin-categories');
 })->name('admin-categories');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/user-types', function () {
+Route::middleware(['auth:sanctum', 'verified', 'admin'])->get('/dashboard/user-types', function () {
     return view('admin-user-types');
 })->name('admin-user-types');
+
+Route::middleware(['auth:sanctum', 'verified', 'admin'])->get('/dashboard/courses',function(){
+    return view('admin-courses');
+})->name('admin-courses');

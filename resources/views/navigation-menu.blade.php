@@ -31,6 +31,9 @@
                     <x-jet-nav-link href="{{ route('admin-user-types') }}" :active="request()->routeIs('admin-user-types')">
                         {{ __('User Types') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('admin-courses') }}" :active="request()->routeIs('admin-courses')">
+                        {{ __('Courses') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 

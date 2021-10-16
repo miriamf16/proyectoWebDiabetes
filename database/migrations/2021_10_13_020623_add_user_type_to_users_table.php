@@ -15,7 +15,7 @@ class AddUserTypeToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->string('user_type');
+            $table->string('user_type')->after('password');
         });
     }
 
