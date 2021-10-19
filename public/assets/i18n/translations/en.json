@@ -1,5 +1,10 @@
 {
     "about":"About",
+    "dashboard": "Dashboard",
+    "login": "Log in",
+    "logout": "Log out",
+    "signin": "Sign in",
+    "signup": "Sign up",
     "about.text.1":"This project focuses on contributing to “Objective 3: Health and well-being - Prevention and attention to the main diseases in the region”, concentrating research on the problem of the Type 2 Diabetes epidemic that afflicts Baja California and, in general, Mexico, of which alarming consequences are expected based on the accelerated increase of this phenomenon, the consequences that it entails in terms of the cost of public health and the decrease in the quality of life of people with Type 2 Diabetes (T2D).",
     "about.text.2":"It covers four main aspects of the problem: (1) The seriousness of the T2D problem has not been disclosed in the appropriate language, taking as evidence the lack of awareness, exemplified by the fact that 8 out of 10 people are prone to contracting or already have contracted this disease in Mexico, and Baja California is above the national average for people with T2D. (2) The main source of this type of diabetes is related to the excess intake of unhealthy foods, about which the nutritional information is not handled in an appropriate and understandable label for the consumer; (3) The awareness of T2D has not been done through impact messages, nor by innovative media, which allows raising awareness among children, youth and young adults, who are the most prone to contracting this disease; and (4) Although there is technology to support the care of T2D, they are mostly for monitoring the condition, however, technology is required to support prevention.",
     "about.text.3":"Therefore, this project focuses on solving these aspects as follows:",

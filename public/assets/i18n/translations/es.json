@@ -1,5 +1,10 @@
 {
     "about":"Acerca de",
+    "dashboard": "Tablero",
+    "login": "Iniciar sesion",
+    "logout": "Cerrar sesion",
+    "signin": "Iniciar Sesion",
+    "signup": "Registrarse",
     "about.text.1":"Este proyecto se enfoca en contribuir al “Objetivo 3: Salud y bienestar.- Prevención y atención a las principales enfermedades de la región”, concentrando la investigación en el problema de la epidemia de Diabetes Tipo 2 que aqueja a Baja California y en general a México, del cual se prevén consecuencias alarmantes con base al incremento acelerado de este fenómeno, las consecuencias que conlleva en términos del costo de salud pública y el decremento de la calidad de vida de las personas con Diabetes Tipo 2 (DT2).",
     "about.text.2":"Cubre cuatro principales aspectos de la problemática: (1) No se ha divulgado en el lenguaje adecuado la gravedad del problema de DT2 teniendo como evidencia la falta de concientización, ejemplificada por el hecho de que 8 de cada 10 personas son propensas a contraer o ya han contraído dicha enfermedad en México, además Baja California se encuentra por arriba de la media nacional de personas con DT2. (2) La fuente principal de este tipo de diabetes está relacionada con el exceso de ingesta de comidas poco saludables, sobre la cual no se maneja la información nutrimental en un etiquetado apropiado y entendible para el consumidor; (3) La  concientización de la DT2 no se ha hecho mediante mensajes de impacto, ni por los medios de comunicación innovadores, que permita concientizar a los niños, jóvenes y adultos jóvenes, quienes son los más propensos a contraer dicha enfermedad; y (4) Aunque existe tecnología para apoyar el cuidado de la DT2, son mayormente para dar seguimiento al padecimiento, sin embargo, se requiere tecnología que apoye a la prevención.",
     "about.text.3":"Por lo tanto, este proyecto se centra en dar solución a estos aspectos de la siguiente manera:",

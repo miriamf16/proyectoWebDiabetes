@@ -11,6 +11,7 @@ use App\Models\Category;
 use DateTime;
 use Inertia\Inertia;
 use App\Models\SurveyResponses;
+use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
@@ -155,5 +156,17 @@ class PageController extends Controller
             'types' => $types,
             'posts' => $posts
         ]);
+    }
+
+    public function logout(Request $request)
+    {
+
+        Auth::logout();
+//         // Get user who requested the logout
+//         $user = request()->user(); //or Auth::user()
+// // Revoke current user token
+//         $user->tokens()->where('id', $user->currentAccessToken()->id)->delete();
+        // return ;
+        return redirect('/');
     }
 }

@@ -84,6 +84,12 @@ Route::middleware(['auth:sanctum', 'verified','admin'])->get('/dashboard', funct
     ]);
 })->name('dashboard');
 
+Route::middleware(['auth:sanctum','verified'])->get('/dashboard-user',function(){
+    return view('dashboard-user');
+})->name('dashboard-user');
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/logout',[PageController::class,'logout'])->name('logout');
+
 Route::middleware(['auth:sanctum', 'verified', 'admin'])->get('/dashboard/posts', function () {
     return view('admin-posts');
 })->name('admin-posts');

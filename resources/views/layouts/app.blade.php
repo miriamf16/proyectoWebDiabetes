@@ -22,7 +22,12 @@
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100">
+        @if (request()->routeIs('dashboard-user'))
+            @livewire('navigation-menu-user')
+        @else
             @livewire('navigation-menu')
+        @endif
+
 
             <!-- Page Heading -->
             @if (isset($header))

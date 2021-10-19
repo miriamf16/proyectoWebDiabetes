@@ -79,34 +79,39 @@ export default function Layout({ title, children }) {
                                 ))}
                             </ul>
                             
-                            <input type="text" id="SB" placeholder={t('searchBar')} name="s"/>
-                            <InertiaLink className="btn btn-sm btn-custom-light" href={`/search/`} onClick={() =>setsearchVal()}>{t('search')}</InertiaLink>
-                            <button type="submit" onClick={() =>callOutBusqueda()} className="btn btn-sm btn-custom-light">{t('searchGoogle')}</button>
+                            <div className="navbar-nav me-auto">
+                                <input className="inline-block mx-1" type="text" id="SB" placeholder={t('searchBar')} name="s"/>
+                                <InertiaLink className="btn btn-sm btn-custom-light inline-block mx-1 pt-2" href={`/search/`} onClick={() =>setsearchVal()}>{t('search')}</InertiaLink>
+                                <button type="submit" onClick={() =>callOutBusqueda()} className="btn btn-sm btn-custom-light inline-block mx-1">{t('searchGoogle')}</button>
+                            </div>
                             
-                            <section className="navbar-text lang-section">
+                            <section className="navbar-nav me-auto lang-section">
                                 <h6>
                                     {loggedIn ? (
                                         <>
-                                        <a href='/dashboard' className="text-sm text-gray-700 underline" >
+                                        <a href='/dashboard' className="text-sm text-gray-700 underline inline-block mx-2" >
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="inline bi bi-speedometer mr-2" viewBox="0 0 16 16">
                                             <path d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2zM3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
                                             <path fillRule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.945 11.945 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0z"/>
-                                        </svg>
-                                        </a>
-                                        <a href="#" className="text-sm text-gray-700" onClick={logOut}>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="inline mr-2 bi bi-door-open" viewBox="0 0 16 16">
-                                                <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
-                                                <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z"/>
-                                            </svg>
+                                        </svg> {t("dashboard")}
                                         </a>
                                         </>
                                     ) : (
-                                        <a href='/dashboard' className="text-sm text-gray-700 underline" >
+                                        <>
+                                        <a href='/dashboard' className="text-sm text-gray-700 underline inline-block mx-2" >
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="inline bi bi-speedometer mr-2" viewBox="0 0 16 16">
                                                 <path d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2zM3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
                                                 <path fillRule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.945 11.945 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0z"/>
-                                            </svg>
+                                            </svg> {t("login")}
+                                        </a>
+                                        <a href="/register" className="text-sm text-gray-700 underline inline-block mx-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="inline bi bi-speedometer mr-2">
+                                                <path d="M19.5 15c-2.483 0-4.5 2.015-4.5 4.5s2.017 4.5 4.5 4.5 4.5-2.015 4.5-4.5-2.017-4.5-4.5-4.5zm2.5 5h-2v2h-1v-2h-2v-1h2v-2h1v2h2v1zm-7.18 4h-14.815l-.005-1.241c0-2.52.199-3.975 3.178-4.663 3.365-.777 6.688-1.473 5.09-4.418-4.733-8.729-1.35-13.678 3.732-13.678 6.751 0 7.506 7.595 3.64 13.679-1.292 2.031-2.64 3.63-2.64 5.821 0 1.747.696 3.331 1.82 4.5z"/>
+                                            </svg> {t("signup")}   
                                         </a> 
+                                        </>
+
+                                        
                                     )}
 
                                     {/* @if (Route::has('login'))

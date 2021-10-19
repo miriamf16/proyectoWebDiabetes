@@ -26,7 +26,15 @@
             </tr>
         </thead>
         <tbody>
-            @if (empty($courses))
+            @if (empty($courses) || $courses->count() == 0)
+                <div class="bg-teal-100 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
+                    <div class="flex">
+                        <div>
+                            <p class="text-sm">You do not have courses created.</p>
+                        </div>
+                    </div>
+                </div>
+            @else
                 @foreach($courses as $course)
                 <tr>
                     <td class="border px-4 py-2">{{ $course->id }}</td>
@@ -42,14 +50,6 @@
                     </td>
                 </tr>
                 @endforeach
-            @else
-                <div class="bg-teal-100 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
-                    <div class="flex">
-                        <div>
-                            <p class="text-sm">You do not have courses created.</p>
-                        </div>
-                    </div>
-                </div>
             @endif
         </tbody>
     </table>

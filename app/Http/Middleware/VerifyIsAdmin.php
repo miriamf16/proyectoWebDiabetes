@@ -27,6 +27,10 @@ class VerifyIsAdmin
                 return $next($request);
                 // exit;
             }
+            else
+            {
+                return redirect('dashboard-user');
+            }
         }
         return redirect('/');
     }
