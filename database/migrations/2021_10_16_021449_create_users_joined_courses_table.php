@@ -20,8 +20,9 @@ class CreateUsersJoinedCoursesTable extends Migration
             $table->json('response');
             $table->timestamps();
 
-            $table->foreign('id_user')->references('id')->on('users');
-            $table->foreign('id_course')->references('id')->on('courses');
+            $table->foreign('id_user')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_course')->references('id')->on('courses')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('id_course')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

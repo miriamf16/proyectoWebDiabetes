@@ -18,14 +18,9 @@ class VerifyIsAdmin
     {
         if(auth()->user())
         {
-            // echo "<pre>";
-            // var_dump($next);
-            // echo "</pre>";
-            // exit;
             if(auth()->user()->user_type == 'admin')
             {
                 return $next($request);
-                // exit;
             }
             else
             {
