@@ -11,29 +11,29 @@
                     <div class="">
                         <div class="mb-4">
                             <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Name course:</label>
-                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="Enter Name" wire:model="name_EN">
+                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="Enter Name" wire:model.defer="name_EN">
                             @error('name_EN') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div class="mb-4">
                             <label for="exampleFormControlInput2" class="block text-gray-700 text-sm font-bold mb-2">Spanish name course:</label>
-                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter Name in spanish" wire:model="name_ES">
+                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter Name in spanish" wire:model.defer="name_ES">
                             @error('name_ES') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
 
                         <div class="mb-4">
                             <label class="block text-gray-700 text-sm font-bold mb-2">Image link:</label>
-                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter link image course" wire:model="image">
+                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter link image course" wire:model.defer="image">
                             @error('image') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
 
                         <div class="mb-4">
                             <label class="block text-gray-700 text-sm font-bold mb-2">Author course:</label>
-                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter name author course" wire:model="author">
+                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter name author course" wire:model.defer="author">
                             @error('author') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
 
 
-                        <input id="material" type="text" wire:model="material">
+                        <input id="material" type="hidden" wire:model.defer="material">
                         @error('material') <span class="text-red-500">{{ $message }}</span>@enderror
                         <div id="courseContainer">
                         </div>
@@ -93,7 +93,6 @@
     const materialObject = {};
 
     addMaterial.addEventListener('click',() =>{
-        
         // creando la seccion del curso
         let containerMaterial = document.createElement('div');
         containerMaterial.innerHTML = templateMaterial;
@@ -116,6 +115,9 @@
         let m = document.querySelector('#material');
         m.value = materialJson;
 
+        let ev = new Event('input', {bubles:true, cancelable: true});
+        m.dispatchEvent(ev);
+
         document.querySelector('#btnSubmitWire').click();
     });
 
@@ -137,6 +139,14 @@
         console.log(materialConfig);
         
         return JSON.stringify(materialConfig);
+    }
+
+    function renderMaterial()
+    {
+        const stringJson = document.querySelector('#material').value;
+        const objJson = JSON.parse(stringJson);
+
+        console.log(objJson);
     }
 
 
