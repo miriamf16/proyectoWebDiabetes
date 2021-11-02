@@ -17,6 +17,7 @@ class CreateCoursesTable extends Migration
             $table->id();
             $table->string('name_EN');
             $table->string('name_ES');
+            $table->string('image');
             $table->string('slug');
             $table->string('author');
             $table->json('material');
