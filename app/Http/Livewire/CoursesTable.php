@@ -18,6 +18,15 @@ class CoursesTable extends Component
         return view('livewire.courses-table',['courses' => Courses::paginate(6)]);
     }
 
+    public function getMaterial($id)
+    {
+        // $courseItem = Courses::select('material')->where('id',$id)->get();
+        $courseItem = Courses::select('id','name_EN','name_ES','image','author','material')->where('id',$id)->get();
+
+        // return json_decode($courseItem[0]->material);
+        return $courseItem->toJson();
+    }
+
     public function openModal()
     {
         $this->isOpen = true;
@@ -85,7 +94,7 @@ class CoursesTable extends Component
         $this->material = $course->material;
         $this->course_id = $course->id;
 
-        $this->openModal();
+        // $this->openModal();
 
     }
 

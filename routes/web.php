@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Livewire\CoursesTable;
 use Inertia\Inertia;
 use App\Models\Survey;
 use App\Models\Response;
@@ -116,3 +117,5 @@ Route::middleware(['auth:sanctum', 'verified', 'admin'])->get('/dashboard/user-t
 Route::middleware(['auth:sanctum', 'verified', 'admin'])->get('/dashboard/courses',function(){
     return view('admin-courses');
 })->name('admin-courses');
+
+Route::get('/dashboard/courses/{id?}',[CoursesTable::class,'getMaterial'])->name('admin-material');
