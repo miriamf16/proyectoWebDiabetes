@@ -478,13 +478,13 @@
         
                     const question = questions[questions.length - 1];
 
-                    renderAnswer(e[key],question);
-
                     question.children[2].children[0].addEventListener('click', () => createQuizAnswer(question));
         
                     question.children[0].addEventListener('click',(e) =>{
                             e.currentTarget.parentElement.parentElement.remove();
                         });
+
+                    renderAnswer(e[key],question);
 
                 }
             }
