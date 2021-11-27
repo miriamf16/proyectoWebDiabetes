@@ -294,6 +294,7 @@
             if(validateInputEmpty(nameEN) && validateInputEmpty(nameES) && validateInputEmpty(author) && validateInputEmpty(image))
             {
                 let materialJson = collectMaterial();
+                // console.log(materialJson);
         
                 let m = document.querySelector('#material');
                 m.value = materialJson;
@@ -394,7 +395,7 @@
 
         const renderMaterial = (e) => {
             let containerMaterial = document.createElement('div');
-                                containerMaterial.innerHTML = `<div class="material bg-gray-200 rounded p-3 mt-2">
+                                containerMaterial.innerHTML = `<div class="material-quiz material bg-gray-200 rounded p-3 mt-2">
                         <a href="javascript: void(0);" style="float:right;font-size:1.1em;">x</a>
                         <div class="mb-4 mt-1">
                             <label class="block text-gray-700 text-sm font-bold mb-2">Material name:</label>
@@ -419,7 +420,7 @@
         }
 
         const renderAnswer = (e,question) =>{
-            console.log(e);
+            // console.log(e);
 
             for (const key in e) {
                 if (e[key].hasOwnProperty('response')) {
@@ -492,7 +493,7 @@
 
         // Crear render quiz
         const renderQuiz = (e) =>{
-            console.log(e);
+            // console.log(e);
             // creando la seccion del quiz
             let containerMaterial = document.createElement('div');
             containerMaterial.innerHTML = `<div class="material-quiz quiz bg-gray-200 rounded p-3 mt-2">
@@ -527,12 +528,12 @@
                 fetch($route)
                     .then(response => response.json())
                     .then(response =>{
-                        console.log(response);
+                        // console.log(response);
                         fillInputs(response[0]);
                         return JSON.parse(response[0].material);
                     })
                     .then(response => {
-                        console.log(response);
+                        // console.log(response);
                         document.querySelector('#courseContainer').innerHTML='';
                         
                         response.forEach(e =>{
