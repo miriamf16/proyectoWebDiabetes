@@ -18,6 +18,7 @@ class CreateUsersJoinedCoursesTable extends Migration
             $table->unsignedBigInteger('id_user');
             $table->unsignedBigInteger('id_course');
             $table->json('response');
+            $table->boolean('joined');
             $table->timestamps();
 
             $table->foreign('id_user')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');

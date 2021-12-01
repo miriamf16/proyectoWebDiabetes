@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CoursesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Livewire\CoursesTable;
@@ -118,4 +119,15 @@ Route::middleware(['auth:sanctum', 'verified', 'admin'])->get('/dashboard/course
     return view('admin-courses');
 })->name('admin-courses');
 
+Route::middleware(['auth:sanctum', 'verified', 'admin'])->get('/dashboard/usercourses',function(){
+    return view('admin-usercourses');
+})->name('admin-usercourses');
+
 Route::get('/dashboard/courses/{id?}',[CoursesTable::class,'getMaterial'])->name('admin-material');
+
+Route::get('/courses',[CoursesTable::class,'getAll'])->name('public-courses');
+
+
+// Ruta para los cursos NOTA esta es respecto a los que estan en la base de datos
+
+Route::middleware(['auth:sanctum','validateusercourse'])->get('/Category/courses/{id?}',[CoursesController::class,'show'])->name('courses-view');

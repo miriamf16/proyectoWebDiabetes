@@ -15468,16 +15468,8 @@ select {
   max-width: 1536px;
 }
 
-.min-h-0 {
-  min-height: 0px;
-}
-
-.min-h-full {
-  min-height: 100%;
-}
-
-.min-h-screen {
-  min-height: 100vh;
+.min-h-80 {
+  min-height: 80vh;
 }
 
 .min-w-0 {
@@ -29241,6 +29233,10 @@ select {
 
 .grid-cols-none {
   grid-template-columns: none;
+}
+
+.grid-cols-course {
+  grid-template-columns: 10fr 4fr;
 }
 
 .auto-cols-auto {
@@ -47439,16 +47435,8 @@ select {
     max-width: 1536px;
   }
 
-  .sm\:min-h-0 {
-    min-height: 0px;
-  }
-
-  .sm\:min-h-full {
-    min-height: 100%;
-  }
-
-  .sm\:min-h-screen {
-    min-height: 100vh;
+  .sm\:min-h-80 {
+    min-height: 80vh;
   }
 
   .sm\:min-w-0 {
@@ -61199,6 +61187,10 @@ select {
 
   .sm\:grid-cols-none {
     grid-template-columns: none;
+  }
+
+  .sm\:grid-cols-course {
+    grid-template-columns: 10fr 4fr;
   }
 
   .sm\:auto-cols-auto {
@@ -79332,16 +79324,8 @@ select {
     max-width: 1536px;
   }
 
-  .md\:min-h-0 {
-    min-height: 0px;
-  }
-
-  .md\:min-h-full {
-    min-height: 100%;
-  }
-
-  .md\:min-h-screen {
-    min-height: 100vh;
+  .md\:min-h-80 {
+    min-height: 80vh;
   }
 
   .md\:min-w-0 {
@@ -93092,6 +93076,10 @@ select {
 
   .md\:grid-cols-none {
     grid-template-columns: none;
+  }
+
+  .md\:grid-cols-course {
+    grid-template-columns: 10fr 4fr;
   }
 
   .md\:auto-cols-auto {
@@ -111225,16 +111213,8 @@ select {
     max-width: 1536px;
   }
 
-  .lg\:min-h-0 {
-    min-height: 0px;
-  }
-
-  .lg\:min-h-full {
-    min-height: 100%;
-  }
-
-  .lg\:min-h-screen {
-    min-height: 100vh;
+  .lg\:min-h-80 {
+    min-height: 80vh;
   }
 
   .lg\:min-w-0 {
@@ -124985,6 +124965,10 @@ select {
 
   .lg\:grid-cols-none {
     grid-template-columns: none;
+  }
+
+  .lg\:grid-cols-course {
+    grid-template-columns: 10fr 4fr;
   }
 
   .lg\:auto-cols-auto {
@@ -143118,16 +143102,8 @@ select {
     max-width: 1536px;
   }
 
-  .xl\:min-h-0 {
-    min-height: 0px;
-  }
-
-  .xl\:min-h-full {
-    min-height: 100%;
-  }
-
-  .xl\:min-h-screen {
-    min-height: 100vh;
+  .xl\:min-h-80 {
+    min-height: 80vh;
   }
 
   .xl\:min-w-0 {
@@ -156878,6 +156854,10 @@ select {
 
   .xl\:grid-cols-none {
     grid-template-columns: none;
+  }
+
+  .xl\:grid-cols-course {
+    grid-template-columns: 10fr 4fr;
   }
 
   .xl\:auto-cols-auto {
@@ -175011,16 +174991,8 @@ select {
     max-width: 1536px;
   }
 
-  .\32xl\:min-h-0 {
-    min-height: 0px;
-  }
-
-  .\32xl\:min-h-full {
-    min-height: 100%;
-  }
-
-  .\32xl\:min-h-screen {
-    min-height: 100vh;
+  .\32xl\:min-h-80 {
+    min-height: 80vh;
   }
 
   .\32xl\:min-w-0 {
@@ -188771,6 +188743,10 @@ select {
 
   .\32xl\:grid-cols-none {
     grid-template-columns: none;
+  }
+
+  .\32xl\:grid-cols-course {
+    grid-template-columns: 10fr 4fr;
   }
 
   .\32xl\:auto-cols-auto {

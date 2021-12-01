@@ -8,9 +8,15 @@ module.exports = {
     ],
 
     theme: {
+        minHeight:{
+            '80' : '80vh',
+        },
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+            },
+            gridTemplateColumns:{
+                'course': '10fr 4fr'
             },
         },
     },

@@ -36,8 +36,11 @@
                         <div class="text-gray-500">
                         Joined: {{$course->created_at->diffForHumans()}}
                         </div>
+                        @if(!$course->joined)
+                        <div class="text-red-600">NOT APPROVED</div>
+                        @endif
                     </figcaption>
-                    <a class="inline-flex items-center h-8 px-5 py-5 text-base text-indigo-100 transition-colors duration-150 bg-blue-500 rounded-lg focus:shadow-outline hover:bg-blue-800" href="#">Play Course</a>
+                    <a class="inline-flex items-center h-8 px-5 py-5 text-base text-indigo-100 transition-colors duration-150 bg-blue-500 rounded-lg focus:shadow-outline hover:bg-blue-800" href="{{route('courses-view').'/'.$course->id_course}}">Play Course</a>
                 </div>
             </div>
         </figure>

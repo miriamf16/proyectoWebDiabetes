@@ -27,6 +27,12 @@ class CoursesTable extends Component
         return $courseItem->toJson();
     }
 
+    public function getAll()
+    {
+        $courseItem = Courses::all(['id','name_EN','name_ES','image','author','created_at']);
+        return $courseItem->toJson();
+    }
+
     public function openModal()
     {
         $this->isOpen = true;
@@ -108,7 +114,7 @@ class CoursesTable extends Component
     {
         // session()->flash('message',strtolower($url));
 
-        if(str_contains(strtolower($url),'drive.google'))
+        if(str_contains(strtolower($url),'drive.google') && (!str_contains(strtolower($url),'uc?export')))
         {
             $url_parts = explode('/',$url);
             $size = count($url_parts);

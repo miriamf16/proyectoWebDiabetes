@@ -9,5 +9,5 @@ class UsersJoinedCourses extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id_user','id_course','response'];
+    protected $fillable = ['id_user','id_course','response','joined'];
 }

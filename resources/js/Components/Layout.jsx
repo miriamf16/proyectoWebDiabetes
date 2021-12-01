@@ -7,13 +7,25 @@ window.searchVal = '';
 
 export default function Layout({ title, children }) {
 
-    useEffect(() => {
+    let [courses, setCourses] = useState([]);
+    useEffect( async () => {
         document.title = title;
+
+        const getCourses = async () =>{
+            const result = await fetch('/courses');
+            const response = await result.json();
+            console.log(response);
+            setCourses(response);
+        }
+
+
+        getCourses();
     }, [title]);
 
     const { t, i18n } = useTranslation(),
         {types, categories, loggedIn} = usePage().props,
-        useTypes = !document.location.pathname.includes('/post/') && !document.location.pathname.includes('/survey/');
+        useTypes = !document.location.pathname.includes('/post/') && !document.location.pathname.includes('/survey/'),
+        isCourses = document.location.pathname.includes('/courses');
 
     let [currentType , setcurrentType] = useState(types && types[0] ? types[0].name : '');
     document.CC = currentType;
@@ -151,7 +163,38 @@ export default function Layout({ title, children }) {
                     </div>
                 : <></>}
 
+
                 {children}
+
+                {isCourses ?
+                        <div className="py-12">
+                        <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
+                            <div className="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                { 
+                        courses.map(x => (
+                            <figure className="md:flex bg-gray-100 rounded-xl p-8 md:p-0">
+                                <img className="w-32 h-32 md:flex-1 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto md:mx-0 object-cover" src={x.image} alt="" width="384" height="512"/>
+                                <div className="md:flex pt-6 md:p-8 text-center md:flex-auto md:justify-end md:text-left space-y-4">
+                                    <div>
+                                        <p className="text-lg font-semibold">
+                                        {x.name_ES}
+                                        </p>
+                                        <figcaption className="font-medium mb-3">
+                                            <div className="text-cyan-600">
+                                            Author: {x.author}
+                                            </div>
+                                            <div className="text-gray-500">
+                                            Created: {x.created_at.split('T')[0]}
+                                            </div>
+                                        </figcaption>
+                                        <a className="inline-flex items-center h-8 px-3 py-2 text-base text-indigo-100 no-underline transition-colors duration-150 bg-blue-500 rounded-lg focus:shadow-outline hover:bg-blue-800" href={"./courses/"+x.id}>Join Course</a>
+                                    </div>
+                                </div>
+                            </figure>
+                        )) 
+                        }</div></div></div>
+                    :<></>
+                }
 
                 <footer className="bg-dark text-white text-center p-1">
                     <h1 className="">Health 101</h1>

@@ -36186,6 +36186,14 @@ var map = {
 		"./resources/js/Pages/category.jsx",
 		"resources_js_Pages_category_jsx"
 	],
+	"./courses": [
+		"./resources/js/Pages/courses.jsx",
+		"resources_js_Pages_courses_jsx"
+	],
+	"./courses.jsx": [
+		"./resources/js/Pages/courses.jsx",
+		"resources_js_Pages_courses_jsx"
+	],
 	"./home": [
 		"./resources/js/Pages/home.jsx",
 		"resources_js_Pages_home_jsx"
@@ -36193,6 +36201,14 @@ var map = {
 	"./home.jsx": [
 		"./resources/js/Pages/home.jsx",
 		"resources_js_Pages_home_jsx"
+	],
+	"./materialCourses": [
+		"./resources/js/Pages/materialCourses.jsx",
+		"resources_js_Pages_materialCourses_jsx"
+	],
+	"./materialCourses.jsx": [
+		"./resources/js/Pages/materialCourses.jsx",
+		"resources_js_Pages_materialCourses_jsx"
 	],
 	"./post": [
 		"./resources/js/Pages/post.jsx",
@@ -36329,7 +36345,7 @@ module.exports = webpackAsyncContext;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Pages_Survey_jsx":1,"resources_js_Pages_category_jsx":1,"resources_js_Pages_home_jsx":1,"resources_js_Pages_post_jsx":1,"resources_js_Pages_search_jsx":1,"resources_js_Pages_subscription_jsx":1,"resources_js_Pages_sugerencias_jsx":1,"resources_js_Pages_survey-thanks_jsx":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Pages_Survey_jsx":1,"resources_js_Pages_category_jsx":1,"resources_js_Pages_courses_jsx":1,"resources_js_Pages_home_jsx":1,"resources_js_Pages_materialCourses_jsx":1,"resources_js_Pages_post_jsx":1,"resources_js_Pages_search_jsx":1,"resources_js_Pages_subscription_jsx":1,"resources_js_Pages_sugerencias_jsx":1,"resources_js_Pages_survey-thanks_jsx":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
